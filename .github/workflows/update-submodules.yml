@@ -10,20 +10,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Set up SSH key
-    - name: Set up SSH key
+    # Set up SSH key for BackendModule
+    - name: Set up SSH key for BackendModule
       run: |
         mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
+        echo "${{ secrets.SSH_PRIVATE_KEY_BACKEND }}" > ~/.ssh/id_rsa_backend
+        chmod 600 ~/.ssh/id_rsa_backend
         ssh-keyscan github.com >> ~/.ssh/known_hosts
+        echo -e "Host backend\n  Hostname github.com\n  IdentityFile ~/.ssh/id_rsa_backend\n  StrictHostKeyChecking no" >> ~/.ssh/config
+
+    # Set up SSH key for FrontendModule
+    - name: Set up SSH key for FrontendModule
+      run: |
+        echo "${{ secrets.SSH_PRIVATE_KEY_FRONTEND }}" > ~/.ssh/id_rsa_frontend
+        chmod 600 ~/.ssh/id_rsa_frontend
+        echo -e "Host frontend\n  Hostname github.com\n  IdentityFile ~/.ssh/id_rsa_frontend\n  StrictHostKeyChecking no" >> ~/.ssh/config
 
     # Checkout the repository with submodules
-    - name: Checkout repository
+    - name: Checkout repository with submodules
       uses: actions/checkout@v3
       with:
         submodules: recursive
-        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     # Update submodules
     - name: Update submodules
