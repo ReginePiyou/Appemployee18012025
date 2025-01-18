@@ -26,16 +26,17 @@ jobs:
         chmod 600 ~/.ssh/id_rsa_frontend
         echo -e "Host frontend\n  Hostname github.com\n  IdentityFile ~/.ssh/id_rsa_frontend\n  StrictHostKeyChecking no" >> ~/.ssh/config
 
- # Synchronize submodules
-    - name: Synchronize submodules
-      run: |
-        git submodule sync
 
-    # Checkout the repository with submodules
+# Checkout the repository with submodules
     - name: Checkout repository with submodules
       uses: actions/checkout@v3
       with:
         submodules: recursive
+
+ # Synchronize submodules
+    - name: Synchronize submodules
+      run: |
+        git submodule sync
 
     # Update submodules
     - name: Update submodules
