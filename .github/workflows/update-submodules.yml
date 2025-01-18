@@ -10,13 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Checkout the main repository
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: recursive
-
-    # Set up SSH key for accessing private repositories or submodules
+    # Set up SSH key
     - name: Set up SSH key
       run: |
         mkdir -p ~/.ssh
@@ -24,7 +18,14 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-    # Update submodules and push changes back to the repository
+    # Checkout the repository with submodules
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    # Update submodules
     - name: Update submodules
       run: |
         git submodule update --remote --merge
