@@ -1,0 +1,22 @@
+name: Update Submodules
+
+on:
+  repository_dispatch:
+    types:
+      - update_submodules
+
+jobs:
+  update-references:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+
+    - name: Update submodules
+      run: |
+        git submodule update --remote --merge
+        git commit -am "Update submodule references"
+        git push origin main
