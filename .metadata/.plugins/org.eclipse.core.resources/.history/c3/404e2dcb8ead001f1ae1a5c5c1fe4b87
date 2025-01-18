@@ -1,0 +1,6 @@
+package God.regine.imc;
+
+@RestController
+@RequestMapping(path = "imc", )
+public class ImcController {
+}

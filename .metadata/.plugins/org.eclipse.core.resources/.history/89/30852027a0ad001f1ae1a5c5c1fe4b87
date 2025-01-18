@@ -1,0 +1,9 @@
+# ignore ALL
+
+*
+
+#keep
+
+!target/*.jar,
+!src,
+!pom.xml

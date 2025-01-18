@@ -1,0 +1,5 @@
+package reG.springangular.crud;
+
+public class CorsConfiguration {
+
+}

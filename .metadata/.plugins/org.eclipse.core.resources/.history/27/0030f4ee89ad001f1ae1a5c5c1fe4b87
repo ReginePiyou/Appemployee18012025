@@ -1,0 +1,4 @@
+package God.regine.imc;
+
+public enum ImcDTO (double poids, double taille) {
+}

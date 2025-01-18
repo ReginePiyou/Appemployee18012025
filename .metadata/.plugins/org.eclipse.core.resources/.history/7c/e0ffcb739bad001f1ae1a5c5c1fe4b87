@@ -1,0 +1,9 @@
+# ignore ALL
+
+*
+
+#keep
+
+!*.jar
+
+target

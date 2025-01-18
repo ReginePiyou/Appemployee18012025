@@ -1,0 +1,613 @@
+    1  java --version
+    2  mvn version
+    3  mvn -version
+    4  sudo apt install mysql
+    5  sudo apt install mysql-server
+    6  man sudo_root
+    7  sudo aptget update
+    8  sudo apt update
+    9  apt install marven
+   10  sudo apt install marven
+   11  sudo apt install maven
+   12  mysqld --version
+   13  ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PK@9/8Reg'
+   14  mysql
+   15  mysql root
+   16  sudo mysql root
+   17  sudo mysql -u root -p
+   18  sudo apt install mysql-workbench-community
+   19  sudo apt install mysql-workbench
+   20  wget https://dev.mysql.com/get/mysql-apt-config_0.8.24-1_all.deb
+   21  sudo dpkg -i mysql-apt-config_0.8.24-1_all.deb
+   22  systemctl status mysql
+   23  sudo lsof -i :3360
+   24  sudo lsof -i :3306
+   25  hostname
+   26  hostname -I
+   27  ping -c 1 $(hostname)
+   28  nano /etc/host
+   29  cat  /etc/hosts
+   30  sudo ufw allow 3306
+   31  sudo cat /etc/mysql/my.cnf
+   32  bind-address = 0.0.0.0
+   33  sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+   34  ping -c 1 $(hostname)
+   35  sudo lsof -i :3306
+   36  sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+   37  sudo systemctl restart mysql
+   38  sudo systemctl status mysql
+   39  mysql -u root -p
+   40  sudo mysql -u root -p
+   41  mysql -u
+   42  mysql -u mysql.sys -p
+   43  mysql -u mysql.sys
+   44  sudo mysql -u root -p
+   45  systemctl stop mysql
+   46  systemctl status  mysql
+   47  systemctl start mysql
+   48  sudo netstat -tulnp | grep 3306
+   49  sudo install netstat
+   50  sudo install net-tools
+   51  sudo apt install net-tools
+   52  sudo netstat -tulnp | grep 3306
+   53  hostname -I
+   54  sudo ufw allow 3306/tcp
+   55  sudo ufw reload
+   56  mysql --version
+   57  sudo systemctl stop mysql
+   58  sudo apt purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
+   59  mysql --version
+   60  sudo apt install mysql-server-8.4.6
+   61  sudo apt install mysql-server
+   62  mysql --version
+   63  sudo apt install mysql-workbench
+   64  sudo snap install mysql-workbench-community
+   65  mysql-workbench
+   66  mysql-workbench-community
+   67  \
+   68  sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
+   69  export GTK_PATH=/usr/lib/gtk-3.0
+   70  echo 'export GTK_PATH=/usr/lib/gtk-3.0' >> ~/.bashrc
+   71  source ~/.bashrc
+   72  mysql-workbench --disable-plugins
+   73  mysql-workbench-community --disable-plugins
+   74  mysql-workbench-community
+   75  sudo netstat -tulnp | grep 3306
+   76  sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+   77  mysql -u
+   78  sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf
+   79  sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+   80  mysql-workbench-community
+   81  sudo netstat -tulnp | grep 3306
+   82  systemctl restart  mysql
+   83  sudo ufw allow 3306/tcp
+   84  sudo ufw reload
+   85  sudo ufw enable
+   86  sudo ufw allow 3306/tcp
+   87  sudo ufw reload
+   88  sudo ufw status
+   89  sudo systemctl restart mysql
+   90  mysql -u root -p
+   91  mysql -u root 
+   92  mysql -u root -p
+   93  sudo mysql -u root -p
+   94  sudo mysql -u root
+   95  mysql -u root -p
+   96  sudo systemctl restart mysql
+   97  mysql-workbench-community
+   98  sudo mysql_secure_installation
+   99  sudo mysql_secure_installation &
+  100  mysql-workbench-community &
+  101  nohup mysql-workbench-community &
+  102  sudo apt install nodejs
+  103  sudo apt update
+  104  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B7B3B788A8D3785C
+  105  sudo apt update
+  106  sudo apt install curl gnupg
+  107  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+  108  sudo snap install curl 
+  109  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+  110  sudo apt install nodejs npm
+  111  curl --dns-servers 8.8.8.8 -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+  112  ps aux | grep dpkg
+  113  ps aux | grep apt
+  114  sudo rm /var/lib/dpkg/lock-frontend
+  115  sudo rm /var/lib/dpkg/lock
+  116  sudo rm /var/cache/apt/archives/lock
+  117  sudo dpkg --configure -a
+  118  sudo apt update
+  119  ps aux | grep aptd
+  120  ng new angularFrontCRUD
+  121  ng -v
+  122  npm install -g @angular/cli
+  123  sudo npm install -g @angular/cli
+  124  ng -v
+  125  ng -version
+  126  ng --v
+  127  ng -v
+  128  ng --version
+  129  sts
+  130  postman
+  131  code .
+  132  ng -v
+  133  npm install -g @angular/cli
+  134  cd --
+  135  node -v
+  136  npm -v
+  137  npm uninstall boostrap
+  138  npm uninstall bootstrap
+  139  npm install bootstrap@4
+  140  npm uninstall bootstrap
+  141  npm install bootstrap@4.5.2
+  142  npm uninstall bootstrap
+  143  npm install bootstrap
+  144  ng g class employee
+  145  ng g c employee-list
+  146  npm install boostrap --save
+  147  npm uninstall boostrap
+  148  npm install boostrap --save
+  149  npm uninstall boostrap
+  150  npm install boostrap@latest --save
+  151  npm uninstall boostrap
+  152  npm audit fix
+  153  npm install boostrap@4 --save
+  154  npm install boostrap@latest --save
+  155  npm uninstall boostrap
+  156  npm install bootstrap
+  157  ng serve
+  158  ng g s employee
+  159  ng serve
+  160  ng g i my
+  161  ng g interceptor my-interceptor
+  162  ng serve
+  163  ip addr
+  164  sudo systemctl restart NetworkManager
+  165  reboot
+  166  ng h c create-employee
+  167  ng g c create-employee
+  168  ng serve
+  169  code .
+  170  sts
+  171  code .
+  172  sudo systemctl restart NetworkManager
+  173  ip a 
+  174  sudo netstat -tulnp | grep 8080
+  175  sudo netstat -tulnp | grep 9001
+  176  sudo netstat -tulnp | grep 8080
+  177  sudo netstat -tulnp | grep 8081
+  178  hotup postman &
+  179  nohup postman &
+  180  ng g c update-employee
+  181  ng serve
+  182  ng cache clean
+  183  ng serve
+  184  ng g c employee-details
+  185  ng serve
+  186  ls
+  187  cd angularFrontCRUD/
+  188  ls
+  189  ng serve
+  190  [200~sudo systemctl restart NetworkManager
+  191  sudo systemctl restart NetworkManager
+  192  reboot
+  193  sudo systemctl restart NetworkManager
+  194  reboot
+  195  sudo rm /etc/NetworkManager/system-connections/*
+  196  cd etc
+  197  ls -al
+  198  sudo systemctl restart NetworkManager
+  199  ip config
+  200  ipconfig
+  201  ifconfig
+  202  nmcli d
+  203  sudo nano /etc/NetworkManager/NetworkManager.conf
+  204  sudo systemctl restart NetworkManager
+  205  nmcli d
+  206  sudo nano /etc/network/interfaces
+  207  sudo nmcli device set ens33 managed yes
+  208  sudo nmcli device connect ens33
+  209  sudo nano /etc/NetworkManager/NetworkManager.conf
+  210  sudo systemctl restart NetworkManager
+  211  reboot
+  212  sudo systemctl restart NetworkManager
+  213  reboot
+  214  sudo nano /etc/NetworkManager/NetworkManager.conf
+  215  sudo systemctl restart NetworkManager
+  216  reboot
+  217  sudo systemctl restart NetworkManager
+  218  reboot
+  219  ip link
+  220  sudo ip link set ens33 up
+  221  ip link
+  222  sudo dhclient ens33
+  223  ip link
+  224  ping -c 4 8.8.8.8
+  225  ip link
+  226  reboot
+  227  ping -c 8.8.8.8
+  228  ping -c 4 8.8.8.8
+  229  ip link
+  230  sudo nano /etc/netplan/01-netcfg.yaml
+  231  ls /etc/netplan/
+  232  sudo nano /etc/netplan/01-netcfg.yaml
+  233  sudo netplan apply
+  234  sudo chmod 600 /etc/netplan/01-netcfg.yaml
+  235  sudo chmod 600 /etc/netplan/01-network-manager-all.yaml
+  236  ip link
+  237  ip addr show ens33
+  238  sudo netplan apply
+  239  ip addr show ens33
+  240  sudo chmod 600 /etc/netplan/01-network-manager-all.yaml
+  241  sudo chmod 600 /etc/netplan/01-netcfg.yaml
+  242  sudo netplan apply
+  243  ip addr show ens33
+  244  cat /etc/network/interfaces
+  245  ls /etc/NetworkManager/conf.d/
+  246  ls /etc/NetworkManager/
+  247  cat /etc/NetworkManager/NetworkManager.conf 
+  248  sudo nano /etc/NetworkManager/NetworkManager.conf 
+  249  sudo systemctl restart NetworkManager
+  250  ip addr show ens33
+  251  sudo nmcli connection add type ethernet ifname ens33 con-name ens33
+  252  sudo nmcli connection up ens33
+  253  nmcli device status
+  254  sudo nano /etc/NetworkManager/NetworkManager.conf
+  255  sudo systemctl restart NetworkManager
+  256  nmcli device status
+  257  sudo nano /etc/netplan/01-netcfg.yaml
+  258  sudo netplan apply
+  259  sudo nmcli connection delete ens33
+  260  sudo nmcli connection add type ethernet ifname ens33 con-name ens33
+  261  sudo nmcli connection up ens33
+  262  sudo systemctl restart NetworkManager
+  263  sudo nmcli connection up ens33
+  264  nmcli device status
+  265  sudo nmcli connection delete ens33
+  266  nmcli device status
+  267  sudo nmcli connection delete ens33
+  268  sudo nmcli connection add type ethernet ifname ens33 con-name ens33
+  269  sudo nmcli connection up ens33
+  270  sudo ip link set ens33 up
+  271  ip link
+  272  sudo nmcli connection up ens33
+  273  journalctl -u NetworkManager
+  274  ip link
+  275  ip addr show ens33
+  276  sudo dhclient ens33
+  277  ping -c 4 8.8.8.8
+  278  ip addr show ens33
+  279  sudo systemctl restart NetworkManager
+  280  nmcli device status
+  281  apt update
+  282  sudo apt update
+  283  apt upgrade
+  284  sudo apt upgrade
+  285  reboot
+  286  code .
+  287  ip link
+  288  sudo ip link set ens33 up
+  289  ip link
+  290  sudo dhclient ens33
+  291  sudo systemctl restart NetworkManager
+  292  ping -c 4 8.8.8.8
+  293  node -v
+  294  code .
+  295  docker ps -a
+  296  docker built -t angular-container .
+  297  docker buildx -t angular-container .
+  298  docker build -t angular-container .
+  299  ARCH=$(uname -m)
+  300  curl -L https://github.com/docker/buildx/releases/latest/download/buildx-linux-${ARCH} -o ~/.docker/cli-plugins/docker-buildx
+  301  chmod +x ~/.docker/cli-plugins/docker-buildx
+  302  file ~/.docker/cli-plugins/docker-buildx
+  303  sudo systemctl restart docker
+  304  docker info | grep -i buildki
+  305  rm -f ~/.docker/cli-plugins/docker-buildx
+  306  ls ~/.docker/cli-plugins/
+  307  ARCH=$(uname -m)
+  308  curl -L https://github.com/docker/buildx/releases/latest/download/buildx-linux-${ARCH} -o ~/.docker/cli-plugins/docker-buildx
+  309  chmod +x ~/.docker/cli-plugins/docker-buildx
+  310  docker buildx version
+  311  DOCKER_BUILDKIT=1 docker build -t angular-container .
+  312  docker buildt -t angular-container .
+  313  sudo systemctl restart docker
+  314  docker buildt -t angular-container .
+  315  DOCKER_BUILDKIT=1 docker build -t angular-container .
+  316  sudo systemctl daemon-reload
+  317  sudo service docker restart
+  318  docker info
+  319  rm -f ~/.docker/cli-plugins/docker-buildx
+  320  docker info
+  321  docker buildt -t angular-container .
+  322  DOCKER_BUILDKIT=1 docker build -t angular-container .
+  323  docker ps -a
+  324  docker images
+  325  docker build -t angular-container .
+  326  docker ps -a
+  327  docker images
+  328  docker run -d -p 4200:4200 --name=angular-container angular-container
+  329  docker ps 
+  330  docker stop angular-container 
+  331  docker ps 
+  332  docker ps -a
+  333  docker 
+  334  docker-compose up --build
+  335  docker info
+  336  Docker Compose  up --build
+  337  sudo apt install docker-compose
+  338  docker-compose --version
+  339  docker-compose up --build
+  340  docker ps -a
+  341  docker-compose up --build
+  342  ls
+  343  docker-compose up --build
+  344  docker ps
+  345  docker ps -a
+  346  docker-compose up --build
+  347  docker ps -a
+  348  docker rm -f 3c52d9cf1ad7_angular-container2
+  349  docker rm -f docker-nginx
+  350  docker ps -a
+  351  docker images
+  352  docker rmi -f angularfrontcrud_angular-service
+  353  docker rmi -f angularfrontcrud_angular-service:latest
+  354  docker ima
+  355  docker rmi -f angularfrontcrud_docker-nginx:latest 
+  356  docker rmi <none>:<none>
+  357  docker rmi <none>
+  358  docker rmi -f <none>
+  359  docker images
+  360  docker-compose up --build
+  361  docker images
+  362  docker rmi -f angularfrontcrud_docker-nginx:latest 
+  363  docker rmi -f angularfrontcrud_angular-service:latest
+  364  docker images
+  365  docker ps -a
+  366  docker rm -f docker-nginx 
+  367  docker rm -f angular-container2
+  368  docker ps -a
+  369  docker-compose up --build
+  370  docker ps
+  371  docker ps -a
+  372  docker rm -f docker-nginx 
+  373  docker rm -f angular-container2
+  374  docker ps -a
+  375  docker images
+  376  docker rmi -f angularfrontcrud_angular-service
+  377  docker rmi -f angularfrontcrud_docker-nginx:latest 
+  378  docker images
+  379  docker-compose up --build
+  380  docker images
+  381  docker ps -a
+  382  ping -c 4 8.8.8.8
+  383  sudo ip link set ens33 up
+  384  sudo dhclient ens33
+  385  ls
+  386  sudo systemctl restart NetworkManager
+  387  ping -c 4 8.8.8.8
+  388  git add .
+  389  git status
+  390  git add .
+  391  git commit -m "Dockerfile"
+  392  git push -u origin main
+  393  code .
+  394  sts
+  395  docker run angular-container2
+  396  docker start angular-container2
+  397  sts
+  398  cd Documents/
+  399  ls
+  400  cd workspace-spring-tool-suite-4-4.26.0.RELEASE/
+  401  ls
+  402  cd sprintboot-backend/
+  403  ls
+  404  java -jar target/sprintboot-backend-0.0.1-SNAPSHOT.jar 
+  405  docker build -t springboot-app .
+  406  docker ps -a
+  407  docker imahes
+  408  docker images
+  409  docker build -t springboot-app .
+  410  docker images
+  411  docker run -p 8080:8080 springboot-app
+  412  docker ps -a
+  413  docker rm -f springboot-app
+  414  docker rm -f 578
+  415  docker ps -a
+  416  docker im
+  417  docker images
+  418  docker rmi springboot-app:latest 
+  419  docker images
+  420  docker build -t springboot-app .
+  421  ls docker.io/library/eclipse-temurin:17-jre-alpine
+  422  ls docker.io/library
+  423  ls /docker.io
+  424  docker build -t springboot-app .
+  425  docker images
+  426  docker rmi springboot-app:latest 
+  427  docker-compose up
+  428  mvn clean install
+  429  java -jar target/sprintboot-backend-0.0.1-SNAPSHOT.jar 
+  430  docker-compose up --build
+  431  docker ps
+  432  docker stop mysql-standalone 
+  433  docker ps
+  434  docker-compose up --build
+  435  docker ps -a
+  436  docker stop mysql-standalone 
+  437  docker ps -a
+  438  docker rm mysql-standalone 
+  439  docker  ae9ec
+  440  docker  a9ec
+  441  docker rm a9ec
+  442  docker ps -a\
+  443  docker images
+  444  docker rmi springboot-docker-container:latest 
+  445  docker images
+  446  docker-compose up --build
+  447  sudo ip link set ens33 up
+  448  sudo dhclient ens33
+  449  ping -c 4 8.8.8.8
+  450  sts nohup
+  451  sts
+  452  systemctl status java
+  453  java -v
+  454  java --v
+  455  java --version
+  456  mysql -version
+  457  sudo mysql --version
+  458  ARCH=$(uname -m)
+  459  uname -m
+  460  bin/idea.sh
+  461  ls
+  462  cd Documents/
+  463  ls
+  464  cd Spint_project/
+  465  bin/idea.sh
+  466  ls
+  467  cd idea-IC-242.23726.103/
+  468  bin/idea.sh
+  469  reboot
+  470  sudo iptables -F
+  471  systemtcl restart NetworkManager
+  472  systemtcl restart NetworkManager
+  473  systemctl restart NetworkManager
+  474  reboot
+  475  ip link
+  476  sudo nmcli networking on
+  477  cd Documents/workspace-spring-tool-suite-4-4.26.0.RELEASE/sprintboot-backend/
+  478  java -jar target/sprintboot-backend-0.0.1-SNAPSHOT.jar 
+  479  docker ps -a
+  480  docker stop spring-app
+  481  docker ps -a
+  482  java -jar target/sprintboot-backend-0.0.1-SNAPSHOT.jar 
+  483  git branch
+  484  git branch 1-add-feature
+  485  git branch
+  486  git status
+  487  git checkout 1-add-feature 
+  488  git branch
+  489  git add .
+  490  git commit -am "dockerize backend OK"
+  491  git fetch --all
+  492  git branch
+  493  git rebase 1-add-feature 
+  494  git push origin 2-add-dockerfile
+  495  ls
+  496  git pull -u origin 2-add-dockerfile 
+  497  git pull origin 2-add-dockerfile 
+  498  git config pull.rebase true 
+  499  git pull origin 2-add-dockerfile 
+  500  git rm Dockerfile
+  501  git restore Dockerfile
+  502  git checkout HEAD Dockerfile
+  503  git add Dockerfile
+  504  git rebase --continue
+  505  git add
+  506  git add .
+  507  git rebase --continue
+  508  git pull origin 2-add-dockerfile 
+  509  git branch
+  510  git push -u origin 2-add-dockerfile
+  511  git branch
+  512  git branch -m 1-add-feature 2-add-dockerfile
+  513  git branch
+  514  git push -u origin 2-add-dockerfile
+  515  docker-compose up
+  516  java -jar target/sprintboot-backend-0.0.1-SNAPSHOT.jar 
+  517  docker ps -a
+  518  docker stop spring-app 
+  519  java -jar target/sprintboot-backend-0.0.1-SNAPSHOT.jar 
+  520  history
+  521  history > history29112024.txt
+  522  ls
+  523  docker-compose up --build
+  524  docker-compose up
+  525  docker-compose up --build
+  526  docker ps -a
+  527  docker images
+  528  docker ps -a
+  529  docker start angular-container2
+  530  ng serve
+  531  docker stop angular-container2 
+  532  docker-compose up --build
+  533  docker-compose up
+  534  docker network ls
+  535  docker network create --driver bridge MyAppNet
+  536  docker network ls
+  537  docker ps -a
+  538  docker start -d --network MyAppNet angular-container2
+  539  docker start --network MyAppNet angular-container2
+  540  docker images
+  541  docker run -dit --network MyAppNet --name=FrontCont angularfrontcrud-angular-service
+  542  docker run -dit --network MyAppNet --name=BackCont springbooot-app
+  543  docker network inspect MyAppNet 
+  544  docker ps -a
+  545  docker images
+  546  docker stop FrontCont
+  547  docker rm FrontCont BackCont 
+  548  docker-compose up --build
+  549  docker-compose up --build 
+  550  cd Documents/
+  551  cd Spint_project/
+  552  ls
+  553  cd ..
+  554  ls
+  555  cd workspace-spring-tool-suite-4-4.26.0.RELEASE/
+  556  ls
+  557  cd sprintboot-backend/
+  558  la
+  559  docker-compose up --build 
+  560  docker ps -a
+  561  docker rm spring-app mysqldb
+  562  docker rm angular-container
+  563  docker rm spring-app mysqldb
+  564  docker rm angular-container
+  565  docker rm spring-app mysqldb
+  566  docker images
+  567  docjer rmi 340 719f
+  568  docker rmi 340 719f
+  569  docker ps -a
+  570  docker rmi -f 340
+  571  docker images
+  572  docker rmi 05fc 6471f e5912
+  573  docker images
+  574  docker rmi 6741f
+  575  docker images
+  576  docker rmi springboot-app:latest 
+  577  docker images
+  578  docker image
+  579  docker images
+  580  docker rmi workspace-spring-tool-suite-4-4260release-angular-service:latest 
+  581  docker rmi -f workspace-spring-tool-suite-4-4260release-angular-service:latest 
+  582  docker images
+  583  docker rmi 6460b
+  584  docker ps -a
+  585  docker stop mysqldb angular-container spring-app 
+  586  docker rmi mysqldb angular-container spring-app 
+  587  docker rm mysqldb angular-container spring-app 
+  588  docker ps -a
+  589  docker images
+  590  docker rmi 6460 904b2 46746
+  591  docker images
+  592  docker-compose up --build 
+  593  docker-compose down
+  594  docker-compose up --build
+  595  docker-compose down
+  596  docker-compose up --build
+  597  docker-compose down
+  598  docker-compose up --build
+  599  docker-compose down
+  600  docker-compose up
+  601  docker-compose down
+  602  docker-compose up --build
+  603  docker-compose down
+  604  docker-compose up --build
+  605  docker-compose up
+  606  docker-compose down
+  607  docker-compose up --build
+  608  docker-compose down
+  609  docker-compose up --build
+  610  ls
+  611  history
+  612  hsitory >history03122024.txt
+  613  history >history03122024.txt
