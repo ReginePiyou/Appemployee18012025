@@ -1,0 +1,6 @@
+[submodule "FrontendModule"]
+	path = FrontendModule
+	url = git@github.com:ReginePiyou/CRUDAPPFrontend.git
+[submodule "BackendModule"]
+	path = BackendModule
+	url = git@github.com:ReginePiyou/CRUDAPPBackend.git

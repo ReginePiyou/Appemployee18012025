@@ -1,5 +1,7 @@
 # Ignore everything
-#*
+SpintBootFront/
+sprintboot-backend/
+
 
 # Unignore specific file 
 #!docker-compose.yml
