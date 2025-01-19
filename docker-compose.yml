@@ -57,12 +57,77 @@
 
 ################ Docker compose with PostgreSQL ####################
 
+# version: '3'
+
+# services:
+#   springboot-app:
+#     container_name: spring-app_postgresqldb
+#     image: springboot-app
+#     restart: always
+#     build: ./BackendModule
+#     ports:
+#       - 8080:8080
+#     environment:
+#       POSTGRES_HOST: postgresdb
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: postgres
+#       POSTGRES_PORT: 5432
+#       POSTGRES_DB: test
+#     depends_on:
+#       postgresdb:
+#         condition: service_healthy
+#     networks:
+#       - MyAppNet
+
+#   # PostgreSQL database
+#   postgresdb:
+#     container_name: postgresdb_1
+#     image: postgres:15
+#     ports:
+#       - 5432:5432
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: postgres
+#       POSTGRES_DB: test
+    
+#     healthcheck:
+#       test: ["CMD-SHELL", "pg_isready -U postgres || exit 1"]
+#       interval: 10s
+#       retries: 5
+    
+#     networks:
+#       - MyAppNet
+
+#   # Frontend
+#   angular-service:
+#     container_name: angular-container_1
+#     build: ./FrontendModule
+#     ports:
+#       - "4200:4200"
+#     command: >
+#       bash -c "npm start"
+#     environment:
+#       BACKEND_URL: http://spring-app:8080
+#     depends_on:
+#       - springboot-app
+#     networks:
+#       - MyAppNet
+
+# networks:
+#   MyAppNet:
+#     driver: bridge
+
+
+
+
+####### For the Workflow Action##############################
+
 version: '3'
 
 services:
   springboot-app:
     container_name: spring-app_postgresqldb
-    image: springboot-app
+    image: reinegod/backend:latest
     restart: always
     build: ./BackendModule
     ports:
@@ -89,18 +154,17 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: test
-    
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres || exit 1"]
       interval: 10s
       retries: 5
-    
     networks:
       - MyAppNet
 
   # Frontend
   angular-service:
     container_name: angular-container_1
+    image: reinegod/frontend:latest
     build: ./FrontendModule
     ports:
       - "4200:4200"
