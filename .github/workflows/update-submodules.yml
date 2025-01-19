@@ -17,14 +17,14 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY_BACKEND }}" > ~/.ssh/id_rsa_backend
         chmod 600 ~/.ssh/id_rsa_backend
         ssh-keyscan github.com >> ~/.ssh/known_hosts
-        echo -e "Host github.com\n  Hostname github.com\n  IdentityFile ~/.ssh/id_rsa_backend\n  StrictHostKeyChecking no" >> ~/.ssh/config
+# echo -e "Host github.com\n  Hostname github.com\n  IdentityFile ~/.ssh/id_rsa_backend\n  StrictHostKeyChecking no" >> ~/.ssh/config
 
     # Set up SSH key for FrontendModule
     - name: Set up SSH key for FrontendModule
       run: |
         echo "${{ secrets.SSH_PRIVATE_KEY_FRONTEND }}" > ~/.ssh/id_rsa_frontend
         chmod 600 ~/.ssh/id_rsa_frontend
-        echo -e "Host github.com\n  Hostname github.com\n  IdentityFile ~/.ssh/id_rsa_frontend\n  StrictHostKeyChecking no" >> ~/.ssh/config
+    # echo -e "Host github.com\n  Hostname github.com\n  IdentityFile ~/.ssh/id_rsa_frontend\n  StrictHostKeyChecking no" >> ~/.ssh/config
 
 
 # Checkout the repository with submodules
