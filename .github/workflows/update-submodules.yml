@@ -80,30 +80,30 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
 
-      # Reinitialize BackendModule submodule
-      - name: Reinitialize BackendModule
-        run: |
-          git submodule deinit -f -- BackendModule
-          rm -rf .git/modules/BackendModule
-          git rm -f BackendModule
-          git submodule add -b main git@github.com:ReginePiyou/CRUDAPPBackend.git BackendModule
-          git submodule update --init --recursive BackendModule
+      # # Reinitialize BackendModule submodule
+      # - name: Reinitialize BackendModule
+      #   run: |
+      #     git submodule deinit -f -- BackendModule
+      #     rm -rf .git/modules/BackendModule
+      #     git rm -f BackendModule
+      #     git submodule add -b main git@github.com:ReginePiyou/CRUDAPPBackend.git BackendModule
+      #     git submodule update --init --recursive BackendModule
 
-      # Reinitialize FrontendModule submodule
-      - name: Reinitialize FrontendModule
-        run: |
-          git submodule deinit -f -- FrontendModule
-          rm -rf .git/modules/FrontendModule
-          git rm -f FrontendModule
-          git submodule add -b main git@github.com:ReginePiyou/CRUDAPPFrontend.git FrontendModule
-          git submodule update --init --recursive FrontendModule
+      # # Reinitialize FrontendModule submodule
+      # - name: Reinitialize FrontendModule
+      #   run: |
+      #     git submodule deinit -f -- FrontendModule
+      #     rm -rf .git/modules/FrontendModule
+      #     git rm -f FrontendModule
+      #     git submodule add -b main git@github.com:ReginePiyou/CRUDAPPFrontend.git FrontendModule
+      #     git submodule update --init --recursive FrontendModule
 
-      # Commit and push reinitialized submodules
-      - name: Commit and push reinitialization
-        run: |
-          git add .
-          git commit -m "Reinitialize submodules"
-          git push origin main
+      # # Commit and push reinitialized submodules
+      # - name: Commit and push reinitialization
+      #   run: |
+      #     git add .
+      #     git commit -m "Reinitialize submodules"
+      #     git push origin main
 
       # Update submodules
       - name: Update submodules
