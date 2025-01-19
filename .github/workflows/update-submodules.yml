@@ -81,6 +81,16 @@ jobs:
         git submodule update --remote --merge
         git commit -am "Update submodule references"
         git push origin main
+    
+    - name: Reinitialize submodules
+      run: |
+        git submodule deinit -f -- BackendModule
+        git rm -f BackendModule
+        git submodule add -b main git@github.com:ReginePiyou/CRUDAPPBackend.git BackendModule
+        git submodule update --init --recursive
+        git add .
+        git commit -m "Reinitialize BackendModule submodule"
+        git push origin main
 
 
 
