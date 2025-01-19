@@ -95,8 +95,6 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
 
-
-          
   # Job 3: Deploy to Production
   deploy:
     needs: docker-build
@@ -111,7 +109,7 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           key: ${{ secrets.SERVER_KEY }}
           script: |
-# Pull the latest Docker images
+            # Pull the latest Docker images
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/backend:latest
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
 
