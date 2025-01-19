@@ -152,73 +152,58 @@
 #           git commit -am "Update submodule references"
 #           git push origin main
 
+
+
+
+
+
 name: Update Submodules
 
 on:
   repository_dispatch:
     types:
       - update_submodules
+
 jobs:
   update-references:
     runs-on: ubuntu-latest
 
     steps:
-      # Set up SSH key for BackendModule
-      - name: Set up SSH key for BackendModule
+      # Set up SSH keys and configs
+      - name: Set up SSH keys
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY_BACKEND }}" > ~/.ssh/id_rsa_backend
-          chmod 600 ~/.ssh/id_rsa_backend
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          echo -e "Host backend.github.com\n  Hostname github.com\n  IdentityFile ~/.ssh/id_rsa_backend\n  StrictHostKeyChecking no" >> ~/.ssh/config
-
-      # Test SSH connection for BackendModule
-      - name: Test SSH connection for BackendModule
-        run: |
-          ssh -T git@backend.github.com || [ $? -eq 1 ]
-
-      # Set up SSH key for FrontendModule
-      - name: Set up SSH key for FrontendModule
-        run: |
           echo "${{ secrets.SSH_PRIVATE_KEY_FRONTEND }}" > ~/.ssh/id_rsa_frontend
-          chmod 600 ~/.ssh/id_rsa_frontend
+          chmod 600 ~/.ssh/id_rsa_backend ~/.ssh/id_rsa_frontend
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          echo -e "Host frontend.github.com\n  Hostname github.com\n  IdentityFile ~/.ssh/id_rsa_frontend\n  StrictHostKeyChecking no" >> ~/.ssh/config
+          echo -e "
+          Host backend.github.com
+            Hostname github.com
+            IdentityFile ~/.ssh/id_rsa_backend
+            StrictHostKeyChecking no
+          Host frontend.github.com
+            Hostname github.com
+            IdentityFile ~/.ssh/id_rsa_frontend
+            StrictHostKeyChecking no
+          " >> ~/.ssh/config
 
-      # Test SSH connection for FrontendModule
+      # Test SSH connections
+      - name: Test SSH connection for BackendModule
+        run: ssh -T git@backend.github.com || [ $? -eq 1 ]
       - name: Test SSH connection for FrontendModule
-        run: |
-          ssh -T git@frontend.github.com || [ $? -eq 1 ]
+        run: ssh -T git@frontend.github.com || [ $? -eq 1 ]
 
-      # Checkout the main repository
-      - name: Checkout the main repository
+      # Clone the main repository
+      - name: Clone the main repository with submodules
         run: |
-          GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_backend -F ~/.ssh/config" git clone --recurse-submodules git@github.com:ReginePiyou/Appemployee18012025.git .
-
-      # Synchronize and initialize submodules
-      - name: Synchronize submodules
-        run: |
-          git submodule sync
-
-      # Checkout BackendModule submodule
-      - name: Checkout BackendModule
-        run: |
-          GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_backend -F ~/.ssh/config" git submodule update --init --recursive BackendModule
-
-      # Checkout FrontendModule submodule
-      - name: Checkout FrontendModule
-        run: |
-          GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_frontend -F ~/.ssh/config" git submodule update --init --recursive FrontendModule
+          GIT_SSH_COMMAND="ssh -F ~/.ssh/config" git clone --recurse-submodules git@github.com:ReginePiyou/Appemployee18012025.git .
 
       # Update submodules
-      - name: Update Backend submodule
+      - name: Update submodules
         run: |
-          GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_backend -F ~/.ssh/config" git -C BackendModule pull origin main
-      - name: Update Frontend submodule
-        run: |
-          GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_frontend -F ~/.ssh/config" git -C FrontendModule pull origin main
+          GIT_SSH_COMMAND="ssh -F ~/.ssh/config" git submodule update --init --recursive
 
-      # Commit and push updated submodule references
       - name: Commit and push updates
         run: |
           git add .
