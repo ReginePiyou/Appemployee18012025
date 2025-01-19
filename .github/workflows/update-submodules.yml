@@ -59,39 +59,53 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Set up SSH key
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts
+      # Set up SSH key for accessing repositories
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-    # Checkout the repository with submodules
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: recursive
-        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      # Clone the main repository with submodules
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - name: Reinitialize submodules
-      run: |
-        git submodule deinit -f -- BackendModule
-        git rm -f BackendModule
-        git submodule add -b main git@github.com:ReginePiyou/CRUDAPPBackend.git BackendModule
-        git submodule update --init --recursive
-        git add .
-        git commit -m "Reinitialize BackendModule submodule"
-        git push origin main
-        
-    # Update submodules
-    - name: Update submodules
-      run: |
-        git submodule update --remote --merge
-        git commit -am "Update submodule references"
-        git push origin main
-    
-    
+      # Reinitialize BackendModule submodule
+      - name: Reinitialize BackendModule
+        run: |
+          git submodule deinit -f -- BackendModule
+          rm -rf .git/modules/BackendModule
+          git rm -f BackendModule
+          git submodule add -b main git@github.com:ReginePiyou/CRUDAPPBackend.git BackendModule
+          git submodule update --init --recursive BackendModule
+
+      # Reinitialize FrontendModule submodule
+      - name: Reinitialize FrontendModule
+        run: |
+          git submodule deinit -f -- FrontendModule
+          rm -rf .git/modules/FrontendModule
+          git rm -f FrontendModule
+          git submodule add -b main git@github.com:ReginePiyou/CRUDAPPFrontend.git FrontendModule
+          git submodule update --init --recursive FrontendModule
+
+      # Commit and push reinitialized submodules
+      - name: Commit and push reinitialization
+        run: |
+          git add .
+          git commit -m "Reinitialize submodules"
+          git push origin main
+
+      # Update submodules
+      - name: Update submodules
+        run: |
+          git submodule update --remote --merge
+          git commit -am "Update submodule references" || echo "No changes to commit"
+          git push origin main
+
 
 
 
