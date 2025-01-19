@@ -104,6 +104,54 @@
 
 
 
+# name: Update Submodules
+
+# on:
+#   repository_dispatch:
+#     types:
+#       - update_submodules
+
+# jobs:
+#   update-references:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       # Set up SSH key for BackendModule
+#       - name: Set up SSH key for BackendModule
+#         run: |
+#           mkdir -p ~/.ssh
+#           echo "${{ secrets.SSH_PRIVATE_KEY_BACKEND }}" > ~/.ssh/id_rsa_backend
+#           chmod 600 ~/.ssh/id_rsa_backend
+#           ssh-keyscan github.com >> ~/.ssh/known_hosts
+#           echo -e "Host backend.github.com\n  Hostname github.com\n  IdentityFile ~/.ssh/id_rsa_backend\n  StrictHostKeyChecking no" >> ~/.ssh/config
+
+#       # Set up SSH key for FrontendModule
+#       - name: Set up SSH key for FrontendModule
+#         run: |
+#           echo "${{ secrets.SSH_PRIVATE_KEY_FRONTEND }}" > ~/.ssh/id_rsa_frontend
+#           chmod 600 ~/.ssh/id_rsa_frontend
+#           echo -e "Host frontend.github.com\n  Hostname github.com\n  IdentityFile ~/.ssh/id_rsa_frontend\n  StrictHostKeyChecking no" >> ~/.ssh/config
+
+#       # Checkout the repository with submodules
+#       - name: Checkout repository with submodules
+#         uses: actions/checkout@v3
+#         with:
+#           submodules: recursive
+#           ssh-key: ${{ secrets.SSH_PRIVATE_KEY_BACKEND }}
+
+#       # Synchronize submodules
+#       - name: Synchronize submodules
+#         run: |
+#           git submodule sync
+
+#       # Update submodules
+#       - name: Update submodules
+#         run: |
+#           GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_backend -F ~/.ssh/config" git submodule foreach 'git fetch && git checkout master && git merge origin/master'
+#           GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_frontend -F ~/.ssh/config" git submodule foreach 'git fetch && git checkout master && git merge origin/master'
+#           git commit -am "Update submodule references"
+#           git push origin main
+
 name: Update Submodules
 
 on:
@@ -125,30 +173,55 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           echo -e "Host backend.github.com\n  Hostname github.com\n  IdentityFile ~/.ssh/id_rsa_backend\n  StrictHostKeyChecking no" >> ~/.ssh/config
 
+      # Test SSH connection for BackendModule
+      - name: Test SSH connection for BackendModule
+        run: |
+          ssh -T git@backend.github.com || exit 1
+
       # Set up SSH key for FrontendModule
       - name: Set up SSH key for FrontendModule
         run: |
           echo "${{ secrets.SSH_PRIVATE_KEY_FRONTEND }}" > ~/.ssh/id_rsa_frontend
           chmod 600 ~/.ssh/id_rsa_frontend
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
           echo -e "Host frontend.github.com\n  Hostname github.com\n  IdentityFile ~/.ssh/id_rsa_frontend\n  StrictHostKeyChecking no" >> ~/.ssh/config
 
-      # Checkout the repository with submodules
-      - name: Checkout repository with submodules
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
-          ssh-key: ${{ secrets.SSH_PRIVATE_KEY_BACKEND }}
+      # Test SSH connection for FrontendModule
+      - name: Test SSH connection for FrontendModule
+        run: |
+          ssh -T git@frontend.github.com || exit 1
 
-      # Synchronize submodules
+      # Checkout the main repository
+      - name: Checkout the main repository
+        run: |
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_backend -F ~/.ssh/config" git clone --recurse-submodules git@github.com:ReginePiyou/Appemployee18012025.git .
+
+      # Synchronize and initialize submodules
       - name: Synchronize submodules
         run: |
           git submodule sync
 
-      # Update submodules
-      - name: Update submodules
+      # Checkout BackendModule submodule
+      - name: Checkout BackendModule
         run: |
-          GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_backend -F ~/.ssh/config" git submodule foreach 'git fetch && git checkout master && git merge origin/master'
-          GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_frontend -F ~/.ssh/config" git submodule foreach 'git fetch && git checkout master && git merge origin/master'
-          git commit -am "Update submodule references"
-          git push origin main
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_backend -F ~/.ssh/config" git submodule update --init --recursive BackendModule
 
+      # Checkout FrontendModule submodule
+      - name: Checkout FrontendModule
+        run: |
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_frontend -F ~/.ssh/config" git submodule update --init --recursive FrontendModule
+
+      # Update submodules
+      - name: Update Backend submodule
+        run: |
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_backend -F ~/.ssh/config" git -C BackendModule pull origin main
+      - name: Update Frontend submodule
+        run: |
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_frontend -F ~/.ssh/config" git -C FrontendModule pull origin main
+
+      # Commit and push updated submodule references
+      - name: Commit and push updates
+        run: |
+          git add .
+          git commit -m "Update submodule references" || echo "No changes to commit"
+          git push origin main
