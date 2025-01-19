@@ -76,7 +76,6 @@ jobs:
 
     - name: Set up SSH key 2
       run: |
-# mkdir -p ~/.ssh
         echo "${{ secrets.SSH_PRIVATE_KEY_FRONTEND }}" > ~/.ssh/id_rsa_1
         chmod 600 ~/.ssh/id_rsa_1
         ssh-keyscan github.com >> ~/.ssh/known_hosts
