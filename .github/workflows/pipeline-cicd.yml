@@ -179,9 +179,9 @@ jobs:
           npm install
           npm run build
 
-      - name: Prepare Docker Compose File
-        run: |
-          cp docker-compose.yml ./docker-compose.yml
+      # - name: Prepare Docker Compose File
+      #   run: |
+      #     cp docker-compose.yml ./docker-compose.yml
 
   # Job 2: Build and Push Docker Images Using Docker Compose
   docker-build:
