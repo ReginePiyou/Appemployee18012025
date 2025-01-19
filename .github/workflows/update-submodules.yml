@@ -158,7 +158,6 @@ on:
   repository_dispatch:
     types:
       - update_submodules
-
 jobs:
   update-references:
     runs-on: ubuntu-latest
@@ -176,7 +175,7 @@ jobs:
       # Test SSH connection for BackendModule
       - name: Test SSH connection for BackendModule
         run: |
-          ssh -T git@backend.github.com || exit 1
+          ssh -T git@backend.github.com || [ $? -eq 1 ]
 
       # Set up SSH key for FrontendModule
       - name: Set up SSH key for FrontendModule
@@ -189,7 +188,7 @@ jobs:
       # Test SSH connection for FrontendModule
       - name: Test SSH connection for FrontendModule
         run: |
-          ssh -T git@frontend.github.com || exit 1
+          ssh -T git@frontend.github.com || [ $? -eq 1 ]
 
       # Checkout the main repository
       - name: Checkout the main repository
