@@ -74,14 +74,6 @@ jobs:
         submodules: recursive
         ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    
-    # Update submodules
-    - name: Update submodules
-      run: |
-        git submodule update --remote --merge
-        git commit -am "Update submodule references"
-        git push origin main
-    
     - name: Reinitialize submodules
       run: |
         git submodule deinit -f -- BackendModule
@@ -91,6 +83,15 @@ jobs:
         git add .
         git commit -m "Reinitialize BackendModule submodule"
         git push origin main
+        
+    # Update submodules
+    - name: Update submodules
+      run: |
+        git submodule update --remote --merge
+        git commit -am "Update submodule references"
+        git push origin main
+    
+    
 
 
 
