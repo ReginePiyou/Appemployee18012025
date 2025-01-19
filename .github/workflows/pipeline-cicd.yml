@@ -93,6 +93,7 @@ jobs:
             .
 
   deploy:
+    needs: docker-build
     runs-on: ubuntu-latest
     steps:
       - name: Pull Docker images
